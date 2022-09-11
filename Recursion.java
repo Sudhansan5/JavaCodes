@@ -60,19 +60,6 @@ public class Recursion {
 
     }
 
-    void printSubsequence(int i, ArrayList<Integer> arrList){
-        if(i==n){
-            System.out.println(arrList);
-            return;
-        }
-
-        arrList.add(arrayList.get(i));
-        printSubsequence(i+1,arrList);
-        arrList.remove(arrList.size()-1);
-        printSubsequence(i+1,arrList);
-
-    }
-
 
     public static void main(String[] args) {
        Recursion r= new Recursion();
@@ -91,7 +78,6 @@ public class Recursion {
 //        r.setName(name);
 //        System.out.println( r.palindrome(0,name.length()-1));
 //        System.out.println();
-        ArrayList<Integer> arrList= new ArrayList<>();
-          r.printSubsequence(0,arrList);
+
     }
 }
