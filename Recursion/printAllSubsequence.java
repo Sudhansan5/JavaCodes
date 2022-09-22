@@ -57,6 +57,26 @@ public class printAllSubsequence {
 
          return left+right;
      }
+
+     int repeatedSubsequenceCount(int index,List<Integer> newList,int sum,int currSum){
+         if(currSum==sum){
+             System.out.println(newList);
+             return 1;
+         }
+
+         if(index>=list.size() || currSum>sum){
+             return 0;
+         }
+
+        newList.add(list.get(index));
+        currSum+= list.get(index);
+        int left= repeatedSubsequenceCount(index,newList,sum,currSum);
+        currSum-= list.get(index);
+        newList.remove(newList.size()-1);
+        int right=repeatedSubsequenceCount(index+1,newList,sum,currSum);
+        return left+right;
+     }
+
     public static void main(String[] args) {
         printAllSubsequence obj= new printAllSubsequence();
 
@@ -67,6 +87,8 @@ public class printAllSubsequence {
 //        obj.printSubsequence(0,newList);  // print all subsequences
 //        System.out.println(obj.printOneSubsequence(0,newList,5,0));  // print any subsequence with sum==k
 
-        System.out.println(obj.subsequenceCount(0,newList,3,0));   // count of subsequence with sum==k
+//        System.out.println(obj.subsequenceCount(0,newList,3,0));   // count of subsequence with sum==k
+
+        System.out.println(obj.repeatedSubsequenceCount(0,newList,5,0));   // count of subsequence with sum==k with repeated elements
     }
 }
